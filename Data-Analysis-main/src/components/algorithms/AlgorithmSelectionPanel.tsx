@@ -128,7 +128,7 @@ const AlgorithmSelectionPanel: React.FC<AlgorithmSelectionPanelProps> = ({
   selectedAlgorithm = "",
 }) => {
   // Group algorithms by category
-  const categories = [...new Set(algorithms.map((algo) => algo.category))];
+  const categories = Array.from(new Set(algorithms.map((algo) => algo.category)));
 
   // State to track the currently selected algorithm for detailed view
   const [detailedView, setDetailedView] = React.useState<string | null>(null);
