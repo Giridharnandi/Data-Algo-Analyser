@@ -130,7 +130,7 @@ const FileAnalysisResult: React.FC<FileAnalysisResultProps> = ({
                     <tr key={index} className="border-b">
                       {analysisResult.headers?.map((header) => (
                         <td key={`${index}-${header}`} className="p-2 border">
-                          {row[header]}
+                          {row[header] as unknown as React.ReactNode}
                         </td>
                       ))}
                     </tr>
@@ -157,19 +157,19 @@ const FileAnalysisResult: React.FC<FileAnalysisResultProps> = ({
                         {typeof stats === "object" ? (
                           <div className="grid grid-cols-2 gap-2 text-sm">
                             {Object.entries(stats).map(([key, value]) => (
-                              <div key={key}>
-                                <span className="text-muted-foreground capitalize">
-                                  {key}:{" "}
-                                </span>
-                                <span className="font-medium">
-                                  {typeof value === "number"
-                                    ? value.toLocaleString(undefined, {
-                                        maximumFractionDigits: 2,
-                                      })
-                                    : value}
-                                </span>
-                              </div>
-                            ))}
+  <div key={key}>
+    <span className="text-muted-foreground capitalize">
+      {key}:{" "}
+    </span>
+    <span className="font-medium">
+      {typeof value === "number"
+        ? value.toLocaleString(undefined, {
+            maximumFractionDigits: 2,
+          })
+        : (value as React.ReactNode)}
+    </span>
+  </div>
+))}
                           </div>
                         ) : (
                           <p>{stats}</p>
