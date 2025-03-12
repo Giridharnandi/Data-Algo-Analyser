@@ -33,7 +33,7 @@ const DashboardHeader = ({
       <div className="flex items-center gap-2">
         <Link href="/" className="flex items-center gap-2">
           <Database className="h-6 w-6 text-primary" />
-          <span className="font-bold text-xl">DataAnalytics</span>
+          <span className="font-bold text-xl">Data Algo Analyser <span className="text-xs text-green-300 px-2">Powered by Glop</span></span>
         </Link>
 
         <nav className="hidden md:flex ml-10">
